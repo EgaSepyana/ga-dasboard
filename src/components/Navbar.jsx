@@ -14,7 +14,7 @@ import { useStateContext } from '../context/ContextProvider'
 
 const NavButton = ({ title, costumeFunc, icon, color, dotColor }) => (
   <>
-    <Tooltip anchorSelect={`${title}-tooltip`} content={title} place={'top'} style={{ zIndex: '9999' }} />
+    <Tooltip anchorSelect={`#${title}-tooltip`} content={title} place={'top'} style={{zIndex: '9999' , fontSize : '0.775rem' , padding: '4px 8px'}} />
     <button className='relative text-xl rounded-full p-3 hover:bg-light-gray' style={{color}} onClick={costumeFunc} type='button' id={`${title}-tooltip`}>
       <span className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2' style={{backgroundColor : dotColor}} />
         {
@@ -51,8 +51,8 @@ const Navbar = () => {
           <NavButton title="Menu" costumeFunc={()=> handleClick('cart')} color="blue" icon={<FiShoppingCart />}/>
           <NavButton title="Chat" dotColor="#03C9D7" costumeFunc={()=> handleClick('chat')} color="blue" icon={<BsChatLeft />}/>
           <NavButton title="Notification" dotColor="#03C9D7" costumeFunc={()=> handleClick('notification')} color="blue" icon={<RiNotification3Line />}/>
-          <Tooltip content='Profile' place='bottom'></Tooltip>
-          <div onClick={()=>handleClick('userProfile')} className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'>
+          <Tooltip anchorSelect='#Profile' content='Profile' place='bottom' style={{zIndex: '9999' , fontSize : '0.775rem' , padding: '4px 8px'}}></Tooltip>
+          <div id='Profile' onClick={()=>handleClick('userProfile')} className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'>
               <img className='rounded-full w-8 h-8' src={avatar}/>
               <p>
                 <span className='text-gray-400 text-14'>Hi , </span> {' '}
